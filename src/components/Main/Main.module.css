@@ -1,5 +1,8 @@
 .main {
   width: 100%;
-  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: row;
+
+  /* height: calc(100vh - 60px); */
   /* border: red solid 1px; */
 }

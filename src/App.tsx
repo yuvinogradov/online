@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Main from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import data from "./data.json";
+import { Product, State } from "./types";
 
 function App() {
+  const [state, setState] = useState<State>({
+    data: data as Product[],
+  });
+
+
   return (
     <div className="App">
       <Header />
-      <Main />
+      <Main state={state} />
       <Footer />
     </div>
   );
