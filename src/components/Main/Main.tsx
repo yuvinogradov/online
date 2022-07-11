@@ -2,14 +2,13 @@ import React from "react";
 import Catalog from "../Catalog/Catalog";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./Main.module.css";
-import { PropsType, State } from "../../types";
+import { PropsType } from "../../types";
 
-export default function Main({state}: PropsType) {
-  
+export default function Main({ state, setState }: PropsType) {
   return (
     <main className={styles.main}>
       <Sidebar />
-      <Catalog state={state} />
+      <Catalog setState={setState} state={state} />
     </main>
   );
 }

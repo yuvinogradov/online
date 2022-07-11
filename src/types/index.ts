@@ -1,3 +1,5 @@
+import { Set } from "typescript";
+
 export type Product = {
   id: number;
   sku: string;
@@ -14,8 +16,10 @@ export type Product = {
 
 export type State = {
   data: Array<Product>;
+  cart: Array<number | void>;
 };
 
 export type PropsType = {
   state: State;
+  setState: (newState: State) => void;
 };

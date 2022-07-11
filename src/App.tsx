@@ -6,17 +6,21 @@ import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import data from "./data.json";
 import { Product, State } from "./types";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const [state, setState] = useState<State>({
     data: data as Product[],
+    cart: [],
   });
 
+  console.log(state.cart.length);
 
   return (
     <div className="App">
       <Header />
-      <Main state={state} />
+      <Cart count={state.cart.length} />
+      <Main setState={setState} state={state} />
       <Footer />
     </div>
   );

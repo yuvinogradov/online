@@ -9,8 +9,9 @@
 }
 
 .imageWrap {
-  width: 92%;
-  aspect-ratio: 1 / 1;
+  width: 240px;
+  height: 240px;
+  /* aspect-ratio: 1 / 1; */
   margin: 0 auto 16px;
 
   /* padding-top: 8px; */
@@ -30,6 +31,8 @@
 .text {
   font-size: 0.9em;
   font-weight: 500;
+  /* word-spacing: -4px; */
+  /* letter-spacing: -0.6px; */
 }
 
 .group1 {
@@ -41,7 +44,8 @@
 .group2 {
   /* align-self: flex-end; */
   /* padding-top: 16px; */
-  margin-top: auto;
+  /* margin-top: auto; */
+  justify-content: start;
 }
 
 .brand {
@@ -69,4 +73,11 @@
   text-align: right;
   margin-top: 16px;
   text-transform: lowercase;
+  margin-left: auto;
 }
+
+.year {
+  margin: 0 12px;
+}
+
+
