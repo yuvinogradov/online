@@ -3,6 +3,7 @@ import styles from "./Cart.module.css";
 
 type CartPropsType = {
   count: number;
+  cart: string[];
 };
 
 const CartLogo = function () {

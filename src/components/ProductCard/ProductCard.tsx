@@ -5,8 +5,8 @@ import s from "./ProductCard.module.css";
 // import img from '../../assets/images/0'
 
 type PropsType = {
-  addToCart: (productId: number) => void;
-  removeFromCart: (productId: number) => void;
+  addToCart: (sku: string) => void;
+  removeFromCart: (sku: string) => void;
   product: Product;
   inCart: boolean;
 };
@@ -17,11 +17,11 @@ export default function ProductCard({
   addToCart,
   removeFromCart,
 }: PropsType) {
-  function handleClick() {
+  function handleClick(): void {
     if (inCart) {
-      removeFromCart(product.id);
+      removeFromCart(product.sku);
     } else {
-      addToCart(product.id);
+      addToCart(product.sku);
     }
   }
 
@@ -30,25 +30,41 @@ export default function ProductCard({
       <div className={s.imageWrap}>
         <img
           className={s.image}
-          src={process.env.PUBLIC_URL + product.image}
+          src={process.env.PUBLIC_URL + product.properties.image}
           alt="Изображение товара"
         />
       </div>
       <div className={s.group1}>
-        <div className={s.brand + " " + s.text}>{product.brand}</div>
+        <div className={s.brand + " " + s.text}>{product.properties.brand}</div>
         <div className={s.sku + " " + s.text}>{product.sku}</div>
       </div>
-      <div className={s.name + " " + s.text} title={product.name}>
-        {product.name}
+      <div className={s.name + " " + s.text} title={product.properties.name}>
+        {product.properties.name}
       </div>
 
       <div className={s.group1 + " " + s.group2}>
-        <div className={s.country + " " + s.text}>{product.country}</div>
-        <div className={s.year + " " + s.text}>{product.year} г.</div>
-        <div className={s.price + " " + s.text}>₽ {product.price}</div>
+        <div className={s.country + " " + s.text}>
+          {product.properties.country}
+        </div>
+        <div className={s.year + " " + s.text}>
+          {product.properties.year} г.
+        </div>
+        <div className={s.price + " " + s.text}>
+          ₽ {product.properties.price}
+        </div>
+      </div>
+      <div
+        className={
+          s.stock + " " + (product.properties.stock ? "" : s.outOfStock)
+        }
+      >
+        {product.properties.stock
+          ? "Наличие: " + product.properties.stock + " шт."
+          : "Нет в наличии"}
       </div>
       <Button
         variant="contained"
+        disabled={!product.properties.stock}
         color={inCart ? "success" : "primary"}
         sx={{
           // backgroundColor: "red",
