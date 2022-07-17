@@ -1,0 +1,17 @@
+.loaderWrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.loaderText {
+  font-size: 2rem;
+  margin-top: 40px;
+  margin-bottom: 300px;
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
