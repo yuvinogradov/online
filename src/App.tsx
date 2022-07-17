@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
-// import data from "./data.json";
 import { Filters, Product } from "./types";
 import Cart from "./components/Cart/Cart";
 import { fetchFilters, fetchProducts } from "./controller/mock-fetch";
@@ -31,7 +29,6 @@ function App() {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [filters, setFilters] = useState<Filters>(filtersInitialState);
-  // const [activeFilters, setActiveFilters] = useState<FilterItemType[]>([]);
   const [cart, setCart] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -45,26 +42,19 @@ function App() {
       .then((response) => response.json())
       .then((products) => {
         console.log("app products: ", products);
-        // setState({ data: products as Product[], cart: [], filters: {} });
         setProducts(products as Product[]);
         setLoading(false);
       });
   }, []);
 
   useEffect(() => {
-    fetchProducts(filters)
-      // .then((response) => {
-      //   return response.json();
-      // })
-      .then((products) => {
-        console.log("app products: ", products);
-        // setState({ data: products as Product[], cart: [], filters: {} });
-        setProducts(products as Product[]);
-        setLoading(false);
-      });
+    fetchProducts(filters).then((products) => {
+      console.log("app products: ", products);
+      setProducts(products as Product[]);
+      setLoading(false);
+    });
   }, [filters]);
 
-  // console.log(state.cart.length);
   console.log("PRODUCTS", products);
 
   return (

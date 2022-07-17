@@ -1,27 +1,6 @@
 import { Filters } from "./../types/index";
 import { Product } from "../types";
 
-// const organizations = [
-//   { id: 0, name: "Accounting department" },
-//   { id: 1, name: "Development department" },
-//   { id: 2, name: "Sales department" },
-// ];
-
-// const data = {
-//   "/users": users,
-//   "/organizations": organizations,
-// };
-
-// function delay(val) {
-//   return new Promise((res, rej) => setTimeout(val ? res : rej, 500, val));
-// }
-
-// export function mockFetch(url) {
-//   const payload = data[url];
-
-//   return delay(payload);
-// }
-
 export async function fetchProducts(filters: Filters | void) {
   if (filters) {
     console.log("with filters");
@@ -74,8 +53,6 @@ export async function fetchProducts(filters: Filters | void) {
 export async function fetchFilters() {
   const resp = await fetch("./data2.json");
   const data = await resp.json();
-  // console.log("==== DATA json :===> ", data);
-  // console.log(" properties : ", data[0].properties);
   const result = data.reduce(
     (acc: Filters, val: Product) => {
       const { category, country, brand, price, year } = val.properties;
@@ -104,12 +81,6 @@ export async function fetchFilters() {
           to: (acc.year.to || year) > year ? acc.year.to : year,
         },
       };
-
-      // acc.category.values = acc.category.values.includes(
-      //   val.properties.category
-      // )
-      //   ? [...acc.category.values]
-      //   : [...acc.category.values, val.properties.category];
     },
     {
       category: { values: [] },

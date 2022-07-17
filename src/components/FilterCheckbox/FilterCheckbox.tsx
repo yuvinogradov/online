@@ -44,6 +44,10 @@ export default function FilterCheckbox({
           labelPlacement="end"
           onChange={handleChange}
           checked={!!active?.includes(item)}
+          sx={{
+            height: "24px",
+            "& .MuiSvgIcon-root": { fontSize: 24 },
+          }}
         />
       ))}
     </div>

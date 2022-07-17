@@ -1,6 +1,5 @@
 import React from "react";
 import { Product } from "../../types";
-// import { PropsType } from "../../types";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./Products.module.css";
 
@@ -14,13 +13,10 @@ export default function Products({ products, cart, setCart }: PropsType) {
   console.log("Products Products:", products);
 
   function addToCart(sku: string): void {
-    // setState({ ...state, cart: [...state.cart, productId] });
     setCart([...cart, sku]);
   }
 
   function removeFromCart(sku: string): void {
-    // const cart = state.cart;
-    // setState({ ...state, cart: state.cart.filter((id) => id != productId) });
     setCart(cart.filter((id) => id != sku));
   }
 

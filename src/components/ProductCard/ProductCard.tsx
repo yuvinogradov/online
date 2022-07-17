@@ -2,7 +2,6 @@ import { Button } from "@mui/material";
 import React from "react";
 import { Product } from "../../types";
 import s from "./ProductCard.module.css";
-// import img from '../../assets/images/0'
 
 type PropsType = {
   addToCart: (sku: string) => void;
@@ -67,7 +66,6 @@ export default function ProductCard({
         disabled={!product.properties.stock}
         color={inCart ? "success" : "primary"}
         sx={{
-          // backgroundColor: "red",
           margin: "auto 30px 0",
         }}
       >
